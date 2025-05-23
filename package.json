@@ -1,7 +1,7 @@
 {
   "name": "matrix-invite-cli",
   "version": "1.2.0",
-  "description": "",
+  "description": "招待制のMatrixサーバーを運用している管理人を対象として、新規登録メンバーにアカウント情報のメールを送信するツール。",
   "main": "invite.js",
   "scripts": {
     "lint": "npx eslint .",
