@@ -5,7 +5,8 @@
   "main": "invite.js",
   "scripts": {
     "lint": "npx eslint .",
-    "format": "npx prettier --write \"**/*.{js,cjs}\""
+    "format": "npx prettier --write \"**/*.{js,cjs}\"",
+    "format:check": "npx prettier --check \"**/*.{js,cjs}\""
   },
   "repository": {
     "type": "git",
