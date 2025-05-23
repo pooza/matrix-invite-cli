@@ -34,11 +34,9 @@ const template = Handlebars.compile(templateSrc);
 if (argv.verbose) console.log(`✔️ Loaded template from ${templatePath}`);
 
 // Prepare data
-const domain = config.homeserver.url.replace(/^https?:\/\//, '');
 const mailText = template({
   username,
   password,
-  domain,
   homeserver_url: config.homeserver.url,
   homeserver_domain: (new URL(config.homeserver.url)).hostname,
   element_url: config.element.url,
@@ -50,7 +48,7 @@ if (argv['dry-run']) {
   console.log('⚠️ Dry-run mode enabled. Email will not be sent.');
   console.log('\n----- EMAIL PREVIEW -----\n');
   console.log(mailText);
-  console.log('\n--------------------------\n');
+  console.log('\n-------------------------\n');
   process.exit(0);
 }
 
