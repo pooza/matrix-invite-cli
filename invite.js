@@ -7,6 +7,7 @@ const Handlebars = require('handlebars');
 const nodemailer = require('nodemailer');
 const minimist = require('minimist');
 const packageInfo = require('./package.json');
+const { isValidUsername, isValidEmail } = require('./lib/validate');
 
 // Parse arguments
 const argv = minimist(process.argv.slice(2), {
@@ -21,6 +22,16 @@ const [username, password, recipientEmail] = argv._;
 if (!username || !password || !recipientEmail) {
   console.error(`${packageInfo.name} v${packageInfo.version}`);
   console.error('Usage: node invite.js [--dry-run] [--verbose] <username> <password> <email>');
+  process.exit(1);
+}
+
+// Validate username and email
+if (!isValidUsername(username)) {
+  console.error(`Invalid username: ${username}`);
+  process.exit(1);
+}
+if (!isValidEmail(recipientEmail)) {
+  console.error(`Invalid email: ${recipientEmail}`);
   process.exit(1);
 }
 
