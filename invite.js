@@ -34,7 +34,8 @@ const template = Handlebars.compile(templateSrc);
 if (argv.verbose) console.log(`✔️ Loaded template from ${templatePath}`);
 
 // Prepare data
-const mailText = template({
+const subject = `Matrix アカウント情報: ${username}`
+const body = template({
   username,
   password,
   homeserver_url: config.homeserver.url,
@@ -47,7 +48,10 @@ const mailText = template({
 if (argv['dry-run']) {
   console.log('⚠️ Dry-run mode enabled. Email will not be sent.');
   console.log('\n----- EMAIL PREVIEW -----\n');
-  console.log(mailText);
+  console.log(`Sbject: ${subject}`);
+  console.log(`To: ${recipientEmail}`);
+  console.log('');
+  console.log(body);
   console.log('\n-------------------------\n');
   process.exit(0);
 }
@@ -70,8 +74,8 @@ if (argv['dry-run']) {
     await transporter.sendMail({
       from: config.from,
       to: recipientEmail,
-      subject: `Matrix アカウント情報: ${username}`,
-      text: mailText
+      subject: subject,
+      text: body
     });
     console.log(`✅ Email sent to ${recipientEmail}`);
   } catch (error) {
