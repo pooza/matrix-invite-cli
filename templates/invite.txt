@@ -1,0 +1,36 @@
+{{username}} 様
+
+Matrixのアカウントを発行しました。
+ご確認の程、よろしくお願い致します。
+
+■ ログイン情報
+
+{{element_domain}}
+ユーザー名: {{username}}
+初期パスワード: {{password}}
+
+・ホームサーバー名
+{{homeserver_domain}}
+
+PC版では入力済みです。
+スマホアプリ版を使用される場合は入力してください。
+
+・注意
+初回ログイン後、以下の対応をお勧めします。
+1. 表示される「セキュリティキー」をメモしてください。
+2. 初期パスワードを変更してください。
+
+■ 完全なユーザー名
+@{{username}}:{{domain}}
+
+Matrixがあなたのユーザーアカウントを指す時、画面上で完全なユーザー名で表示されることがあります。
+ログイン時に入力する必要はありません。
+
+■ スマホアプリ
+代表的なスマホアプリを挙げます。
+
+・iOS:
+https://apps.apple.com/jp/app/element-messenger/id1083446067
+
+・Android:
+https://play.google.com/store/apps/details?id=im.vector.app

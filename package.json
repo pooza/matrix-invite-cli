@@ -1,0 +1,25 @@
+{
+  "name": "matrix-invite-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "invite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pooza/matrix-invite-cli.git"
+  },
+  "author": "Tatsuya Koishi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pooza/matrix-invite-cli/issues"
+  },
+  "homepage": "https://github.com/pooza/matrix-invite-cli#readme",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0",
+    "minitest": "^0.2.0",
+    "nodemailer": "^7.0.3"
+  }
+}
