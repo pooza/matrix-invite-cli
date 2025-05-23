@@ -6,7 +6,7 @@ const yaml = require('js-yaml');
 const Handlebars = require('handlebars');
 const nodemailer = require('nodemailer');
 const minimist = require('minimist');
-const package = require('./package.json');
+const packageInfo = require('./package.json');
 
 // Parse arguments
 const argv = minimist(process.argv.slice(2), {
@@ -19,7 +19,7 @@ const argv = minimist(process.argv.slice(2), {
 
 const [username, password, recipientEmail] = argv._;
 if (!username || !password || !recipientEmail) {
-  console.error(`${package.name} v${package.version}`);
+  console.error(`${packageInfo.name} v${packageInfo.version}`);
   console.error('Usage: node invite.js [--dry-run] [--verbose] <username> <password> <email>');
   process.exit(1);
 }
