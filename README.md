@@ -13,7 +13,7 @@ smtp:
   secure: false
   auth:
     user: apikey
-    pass: your_password
+    pass: your_api_key
 from: noreply@b-shock.org
 element:
   url: https://matrix.b-shock.org
