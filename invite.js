@@ -30,7 +30,7 @@ const config = yaml.load(fs.readFileSync(configPath, 'utf8'));
 if (argv.verbose) console.log(`✔️ Loaded config from ${configPath}`);
 
 // Load template
-const templatePath = path.join(__dirname, 'templates', 'invite.txt');
+const templatePath = path.join(__dirname, 'templates', 'invite.hbs');
 const templateSrc = fs.readFileSync(templatePath, 'utf8');
 const template = Handlebars.compile(templateSrc);
 if (argv.verbose) console.log(`✔️ Loaded template from ${templatePath}`);
