@@ -12,8 +12,8 @@ const argv = minimist(process.argv.slice(2), {
   boolean: ['dry-run', 'verbose'],
   alias: {
     d: 'dry-run',
-    v: 'verbose'
-  }
+    v: 'verbose',
+  },
 });
 
 const [username, password, recipientEmail] = argv._;
@@ -34,14 +34,14 @@ const template = Handlebars.compile(templateSrc);
 if (argv.verbose) console.log(`✔️ Loaded template from ${templatePath}`);
 
 // Prepare data
-const subject = `Matrix アカウント情報: ${username}`
+const subject = `Matrix アカウント情報: ${username}`;
 const body = template({
   username,
   password,
   homeserver_url: config.homeserver.url,
-  homeserver_domain: (new URL(config.homeserver.url)).hostname,
+  homeserver_domain: new URL(config.homeserver.url).hostname,
   element_url: config.element.url,
-  element_domain: (new URL(config.element.url)).hostname,
+  element_domain: new URL(config.element.url).hostname,
 });
 
 // Dry-run mode
@@ -67,7 +67,7 @@ if (argv['dry-run']) {
     host: config.smtp.host,
     port: config.smtp.port,
     secure: config.smtp.secure,
-    auth: config.smtp.auth
+    auth: config.smtp.auth,
   });
 
   try {
@@ -75,7 +75,7 @@ if (argv['dry-run']) {
       from: config.from,
       to: recipientEmail,
       subject: subject,
-      text: body
+      text: body,
     });
     console.log(`✅ Email sent to ${recipientEmail}`);
   } catch (error) {
