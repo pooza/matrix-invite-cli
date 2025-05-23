@@ -25,11 +25,11 @@ if (!username || !password || !recipientEmail) {
   process.exit(1);
 }
 
+// Validate username and email
 if (!isValidUsername(username)) {
   console.error(`Invalid username: ${username}`);
   process.exit(1);
 }
-
 if (!isValidEmail(recipientEmail)) {
   console.error(`Invalid email: ${recipientEmail}`);
   process.exit(1);
